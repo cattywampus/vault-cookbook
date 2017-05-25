@@ -28,4 +28,3 @@ action :remove do
     action :remove
   end
 end
-
