@@ -4,9 +4,6 @@
 #
 # Copyright 2015-2016, Bloomberg Finance L.P.
 #
-# A `vault_installation` provider which manages Vault installation
-# from the Go source builds.
-#
 
 resource_name :vault_install_git
 

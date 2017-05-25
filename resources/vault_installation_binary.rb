@@ -13,9 +13,9 @@ property :archive_basename, String, name_property: true
 property :archive_checksum, String
 property :extract_to, String, default: '/opt/vault'
 
-default_action :create
+default_action :install
 
-action :create do
+action :install do
   [new_resource.extract_to, ::File.join(new_resource.extract_to, new_resource.version)].each do |path|
     directory path do
       mode '0755'
@@ -23,7 +23,6 @@ action :create do
     end
   end
 
-  # Still coming from poise
   ark new_resource.archive_basename do
     path ::File.join(new_resource.extract_to, new_resource.version)
     source archive_url
