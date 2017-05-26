@@ -2,21 +2,21 @@
 # Cookbook: hashicorp-vault
 # License: Apache 2.0
 #
-# Copyright 2015-2016, Bloomberg Finance L.P.
+# Copyright 2015-2017, Bloomberg Finance L.P.
 #
 
 resource_name :vault_installation_binary
 
-property :version, String
-property :archive_url, String
-property :archive_basename, String, name_property: true
+property :version, String, name_property: true
 property :archive_checksum, String
 property :extract_to, String, default: '/opt/vault'
 
 default_action :create
 
+installpath = ::File.join(new_resource.extract_to, new_resource.version)
+
 action :create do
-  [new_resource.extract_to, ::File.join(new_resource.extract_to, new_resource.version)].each do |path|
+  [new_resource.extract_to, installpath].each do |path|
     directory path do
       mode '0755'
       recursive true
@@ -24,20 +24,20 @@ action :create do
   end
 
   # Still coming from poise
-  ark new_resource.archive_basename do
-    path ::File.join(new_resource.extract_to, new_resource.version)
+  ark basename do
+    path installpath
     source archive_url
     checksum new_resource.archive_checksum
     action :put
   end
 
   link '/usr/local/bin/vault' do
-    to ::File.join(new_resource.extract_to, new_resource.version, 'vault')
+    to ::File.join(installpath, 'vault')
   end
 end
 
 action :remove do
-  directory ::File.join(new_resource.extract_to, new_resource.version) do
+  directory installpath do
     recursive true
     action :delete
   end
@@ -48,11 +48,7 @@ action :remove do
   end
 end
 
-def vault_program
-  ::File.join(new_resource.extract_to, new_resource.version, 'vault')
-end
-
-def self.default_archive_url
+def self.archive_url
   "https://releases.hashicorp.com/vault/#{new_resource.version}/" + basename
 end
 
