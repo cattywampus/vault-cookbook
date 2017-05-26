@@ -8,6 +8,8 @@
 resource_name :vault_install_binary
 
 property :version, String, name_property: true
+property :user, String, default: 'vault'
+property :group, String, default: 'vault'
 property :archive_basename, String, default: lazy {
   case node['kernel']['machine']
   when 'x86_64', 'amd64' then ['vault', version, node['os'], 'amd64'].join('_')
@@ -23,16 +25,16 @@ default_action :install
 action :install do
   directory new_resource.extract_to do
     mode '0755'
-    owner 'vault'
-    group 'vault'
+    owner new_resource.user
+    group new_resource.group
     recursive true
   end
 
   poise_archive new_resource.archive_url do
     destination ::File.join(new_resource.extract_to, new_resource.version)
     strip_components 0
-    user 'vault'
-    group 'vault'
+    user new_resource.user
+    group new_resource.group
   end
 
   link '/usr/local/bin/vault' do
