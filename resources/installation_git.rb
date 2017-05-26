@@ -59,3 +59,6 @@ action :remove do
     action :delete
   end
 end
+def vault_program
+  ::File.join(new_resource.git_path, 'bin', 'vault')
+end

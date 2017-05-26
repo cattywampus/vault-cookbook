@@ -1,4 +1,4 @@
-describe file('/opt/vault/0.6.5/vault') do
+describe file('/opt/vault/0.7.2/vault') do
   it { should be_file }
   it { should be_executable }
 end
@@ -11,7 +11,7 @@ describe user('vault') do
   it { should exist }
 end
 
-%w(/opt/vault /opt/vault/0.6.5).each do |path|
+%w(/opt/vault /opt/vault/0.7.2).each do |path|
   describe directory(path) do
     it { should exist }
     its('mode') { should cmp '0755' }
@@ -22,7 +22,7 @@ describe directory('/etc/vault') do
   it { should exist }
   its('owner') { should eq 'vault' }
   its('group') { should eq 'vault' }
-  its('mode') { should cmp '0750' }
+  its('mode') { should cmp '0755' }
 end
 
 describe file('/etc/vault/vault.json') do

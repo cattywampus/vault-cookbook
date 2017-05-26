@@ -28,3 +28,6 @@ action :remove do
     action :remove
   end
 end
+def vault_program
+  options.fetch(:vault_program, '/usr/local/bin/vault')
+end
