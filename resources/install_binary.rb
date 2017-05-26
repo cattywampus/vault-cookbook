@@ -5,7 +5,7 @@
 # Copyright 2015-2016, Bloomberg Finance L.P.
 #
 
-resource_name :vault_installation_binary
+resource_name :vault_install_binary
 
 property :version, String, name_property: true
 property :archive_basename, String, default: lazy {

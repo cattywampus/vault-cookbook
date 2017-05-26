@@ -9,7 +9,7 @@ poise_service_user node['hashicorp-vault']['service_user'] do
   not_if { node['hashicorp-vault']['service_user'] == 'root' }
 end
 
-vault_install_binary node['hashicorp-vault']['version']
+vault_install_git node['hashicorp-vault']['version']
 
 config = vault_config node['hashicorp-vault']['config']['path'] do |r|
   owner node['hashicorp-vault']['service_user']
@@ -26,7 +26,7 @@ vault_service node['hashicorp-vault']['service_name'] do |r|
   group node['hashicorp-vault']['service_group']
   config_path node['hashicorp-vault']['config']['path']
   disable_mlock config.disable_mlock
-  program "/opt/vault/#{node['hashicorp-vault']['version']}/vault"
+  program ::File.join(node['go']['gopath'], 'src', 'github.com', 'hashicorp', 'vault', 'bin', 'vault')
 
   if node['hashicorp-vault']['service']
     node['hashicorp-vault']['service'].each_pair { |k, v| r.send(k, v) }
