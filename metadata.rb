@@ -16,6 +16,5 @@ supports 'freebsd'
 
 depends 'build-essential'
 depends 'golang', '~> 1.7'
-depends 'poise', '~> 2.8.1'
 depends 'poise-service', '~> 1.5.1'
 depends 'poise-archive', '~> 1.5'
