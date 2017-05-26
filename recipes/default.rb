@@ -10,13 +10,8 @@ end
 
 vault_install_binary '0.7.2'
 
-vault_config '/etc/vault/vault.json' do |r|
-  owner 'vault'
-  group 'vault'
-
-  if node['hashicorp-vault']['config']
-    node['hashicorp-vault']['config'].each_pair { |k, v| r.send(k, v) }
-  end
+vault_config 'default' do
+  address '127.0.0.1:8200'
   notifies :reload, 'vault_service[vault]', :delayed
 end
 

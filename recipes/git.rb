@@ -11,24 +11,13 @@ end
 
 vault_install_git '0.7.2'
 
-config = vault_config '/etc/vault/vault.json' do |r|
-  owner 'vault'
-  group 'vault'
-
-  if node['hashicorp-vault']['config']
-    node['hashicorp-vault']['config'].each_pair { |k, v| r.send(k, v) }
-  end
+vault_config 'default' do
+  address '127.0.0.1:8200'
+  tls_cert_file '/etc/vault/ssl/certs/vault.crt'
+  tls_key_file '/etc/vault/ssl/private/vault.key'
   notifies :reload, 'vault_service[vault]', :delayed
 end
 
-vault_service 'vault' do |r|
-  user 'vault'
-  group 'vault'
-  disable_mlock config.disable_mlock
-  program ::File.join(node['go']['gopath'], 'src', 'github.com', 'hashicorp', 'vault', 'bin', 'vault')
-
-  if node['hashicorp-vault']['service']
-    node['hashicorp-vault']['service'].each_pair { |k, v| r.send(k, v) }
-  end
+vault_service 'vault' do
   action [:enable, :start]
 end
