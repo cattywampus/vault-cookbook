@@ -1,3 +1,12 @@
+#
+# Cookbook: hashicorp-vault
+# License: Apache 2.0
+#
+# Copyright 2015-2016, Bloomberg Finance L.P.
+#
+
+resource_name :vault_installation_package
+
 property :version, String, name_property: true
 property :package_name, String, default: 'vault'
 property :source, String
@@ -19,4 +28,6 @@ action :remove do
     action :remove
   end
 end
-
+def vault_program
+  options.fetch(:vault_program, '/usr/local/bin/vault')
+end

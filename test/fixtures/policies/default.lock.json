@@ -1,0 +1,251 @@
+{
+  "revision_id": "f0cc2d263ab37bf863b0cc4339b22f534355648bd192bfc19b2196c5b6b541fd",
+  "name": "default",
+  "run_list": [
+    "recipe[hashicorp-vault::git]"
+  ],
+  "cookbook_locks": {
+    "hashicorp-vault": {
+      "version": "2.5.0",
+      "identifier": "7cd9b1f157b78f96b134025a87a5e3b28cd7c0e0",
+      "dotted_decimal_identifier": "35142255393617807.42416083442501541.250356006633696",
+      "source": "../../..",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": "https://github.com/cattywampus/vault-cookbook.git",
+        "revision": "56c7c9842a288da8725e90defe64ac3b8d889add",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/custom_resource_installers"
+        ]
+      },
+      "source_options": {
+        "path": "../../.."
+      }
+    },
+    "build-essential": {
+      "version": "8.0.2",
+      "identifier": "ee98a435b3a6278be6c0e24f9d87f8c845f71b3e",
+      "dotted_decimal_identifier": "67158875500160551.39378737867758983.273539050969918",
+      "cache_key": "build-essential-8.0.2-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/build-essential/versions/8.0.2/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/build-essential/versions/8.0.2/download",
+        "version": "8.0.2"
+      }
+    },
+    "golang": {
+      "version": "1.7.0",
+      "identifier": "21bcc92ed2aa576049d2e633eb31cea0ea3e987c",
+      "dotted_decimal_identifier": "9496246491458135.27102767918345009.227190520060028",
+      "cache_key": "golang-1.7.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/golang/versions/1.7.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/golang/versions/1.7.0/download",
+        "version": "1.7.0"
+      }
+    },
+    "poise": {
+      "version": "2.8.1",
+      "identifier": "2977d974ad23cfc41e0920e1b2fe048eef1ed65a",
+      "dotted_decimal_identifier": "11672249894249423.55202119990489854.5011943642714",
+      "cache_key": "poise-2.8.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.8.1/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.8.1/download",
+        "version": "2.8.1"
+      }
+    },
+    "poise-service": {
+      "version": "1.5.1",
+      "identifier": "c8860472a13cbce22cb5929d7f23cf53f32d06cf",
+      "dotted_decimal_identifier": "56442349003291836.63662503097106211.227959469049551",
+      "cache_key": "poise-service-1.5.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-service/versions/1.5.1/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-service/versions/1.5.1/download",
+        "version": "1.5.1"
+      }
+    },
+    "poise-archive": {
+      "version": "1.5.0",
+      "identifier": "60d072e2d2b984baf1bf8896ab581fc9043ab1a9",
+      "dotted_decimal_identifier": "27250789614532996.52620150600805208.34948219842985",
+      "cache_key": "poise-archive-1.5.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-archive/versions/1.5.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-archive/versions/1.5.0/download",
+        "version": "1.5.0"
+      }
+    },
+    "seven_zip": {
+      "version": "2.0.2",
+      "identifier": "8e6795446cfa8e0a4a09cef4d5d35eb2d522a24d",
+      "dotted_decimal_identifier": "40083337488693902.2896155754419667.104122173006413",
+      "cache_key": "seven_zip-2.0.2-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/seven_zip/versions/2.0.2/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/seven_zip/versions/2.0.2/download",
+        "version": "2.0.2"
+      }
+    },
+    "mingw": {
+      "version": "2.0.1",
+      "identifier": "9d203e2036b6d20a161e9649f1bc1e3fb2a4ff85",
+      "dotted_decimal_identifier": "44227022544090834.2839070393364924.33258928930693",
+      "cache_key": "mingw-2.0.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/mingw/versions/2.0.1/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/mingw/versions/2.0.1/download",
+        "version": "2.0.1"
+      }
+    },
+    "windows": {
+      "version": "3.0.5",
+      "identifier": "470450a54f82c38a4b84254ada98c2d47288333b",
+      "dotted_decimal_identifier": "19989467763802819.38926577719499416.214217710383931",
+      "cache_key": "windows-3.0.5-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/3.0.5/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/3.0.5/download",
+        "version": "3.0.5"
+      }
+    },
+    "ohai": {
+      "version": "5.1.0",
+      "identifier": "0c8f2906d48ae976d03d6eb6c3f39534ea62d795",
+      "dotted_decimal_identifier": "3535106091551465.33443009520911347.164054503184277",
+      "cache_key": "ohai-5.1.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/ohai/versions/5.1.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/ohai/versions/5.1.0/download",
+        "version": "5.1.0"
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "hashicorp-vault",
+        ">= 0.0.0"
+      ],
+      [
+        "build-essential",
+        "= 8.0.2"
+      ],
+      [
+        "golang",
+        "= 1.7.0"
+      ],
+      [
+        "poise",
+        "= 2.8.1"
+      ],
+      [
+        "poise-service",
+        "= 1.5.1"
+      ],
+      [
+        "poise-archive",
+        "= 1.5.0"
+      ],
+      [
+        "seven_zip",
+        "= 2.0.2"
+      ],
+      [
+        "mingw",
+        "= 2.0.1"
+      ],
+      [
+        "windows",
+        "= 3.0.5"
+      ],
+      [
+        "ohai",
+        "= 5.1.0"
+      ]
+    ],
+    "dependencies": {
+      "build-essential (8.0.2)": [
+        [
+          "seven_zip",
+          ">= 0.0.0"
+        ],
+        [
+          "mingw",
+          ">= 1.1.0"
+        ]
+      ],
+      "golang (1.7.0)": [
+
+      ],
+      "poise (2.8.1)": [
+
+      ],
+      "poise-service (1.5.1)": [
+        [
+          "poise",
+          "~> 2.0"
+        ]
+      ],
+      "poise-archive (1.5.0)": [
+        [
+          "poise",
+          "~> 2.6"
+        ]
+      ],
+      "seven_zip (2.0.2)": [
+        [
+          "windows",
+          ">= 1.2.2"
+        ]
+      ],
+      "mingw (2.0.1)": [
+        [
+          "seven_zip",
+          ">= 0.0.0"
+        ]
+      ],
+      "windows (3.0.5)": [
+        [
+          "ohai",
+          ">= 4.0.0"
+        ]
+      ],
+      "ohai (5.1.0)": [
+
+      ],
+      "hashicorp-vault (2.5.0)": [
+        [
+          "build-essential",
+          ">= 0.0.0"
+        ],
+        [
+          "golang",
+          "~> 1.7"
+        ],
+        [
+          "poise",
+          "~> 2.8.1"
+        ],
+        [
+          "poise-service",
+          "~> 1.5.1"
+        ],
+        [
+          "poise-archive",
+          "~> 1.5"
+        ]
+      ]
+    }
+  }
+}
