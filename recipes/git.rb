@@ -4,11 +4,6 @@
 #
 # Copyright 2015-2016, Bloomberg Finance L.P.
 #
-
-poise_service_user 'vault' do
-  group 'vault'
-end
-
 vault_install_git '0.7.2'
 
 config = vault_config '/etc/vault/vault.json' do |r|

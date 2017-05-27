@@ -23,6 +23,10 @@ property :extract_to, String, default: '/opt/vault'
 default_action :install
 
 action :install do
+  poise_service_user new_resource.user do
+    group new_resource.group
+  end
+
   [new_resource.extract_to, ::File.join(new_resource.extract_to, new_resource.version)].each do |dir|
     directory dir do
       mode '0755'

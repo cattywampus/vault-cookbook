@@ -24,6 +24,10 @@ action :install do
   golang_package 'golang.org/x/tools/cmd/cover'
   golang_package 'github.com/golang/go/src/cmd/vet'
 
+  poise_service_user new_resource.user do
+    group new_resource.group
+  end
+
   # Ensure paths exist for checkout, or git will fail
   directory new_resource.git_path do
     action :create
