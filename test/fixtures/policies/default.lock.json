@@ -1,5 +1,5 @@
 {
-  "revision_id": "184ce062aeccbf708366ffcef79328c7e152ff849dc403c9e03ba7a33aa4cf46",
+  "revision_id": "1f34ebc4975da92cad57c805be0cc0754423826341e261261e03382977db938c",
   "name": "default",
   "run_list": [
     "recipe[hashicorp-vault::default]"
@@ -7,19 +7,18 @@
   "cookbook_locks": {
     "hashicorp-vault": {
       "version": "2.5.0",
-      "identifier": "b8964ad20cd3ab947409d15200d96bf843253466",
-      "dotted_decimal_identifier": "51956643810562987.41785882068517081.118714022573158",
+      "identifier": "3149ca298f3f41566632fbe70ed9c88a6fa32386",
+      "dotted_decimal_identifier": "13873406488297281.24319217157738201.220496904004486",
       "source": "../../..",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:jessebolson/vault-cookbook.git",
-        "revision": "ea41199222cba52fa3d0859e344907d82b67d2fc",
+        "revision": "104634fe6007beaadd5e4c6897fdaacdf1f99d8e",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
           "origin/HEAD -> origin/master",
-          "origin/custom_resource_config",
           "origin/master"
         ]
       },

@@ -8,6 +8,8 @@
 resource_name :vault_install_git
 
 property :version, String, name_property: true
+property :user, String, default: 'vault'
+property :group, String, default: 'vault'
 property :git_url, String, default: 'https://github.com/hashicorp/vault'
 property :git_path, String, default: "#{node['go']['gopath']}/src/github.com/hashicorp/vault"
 property :git_ref, String, default: lazy { "v#{version}" }
