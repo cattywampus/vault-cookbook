@@ -26,14 +26,20 @@ describe directory('/etc/vault') do
 end
 
 describe file('/etc/vault/vault.json') do
-  its('mode') { should eq 0640 }
   it { should be_file }
   it { should be_owned_by 'vault' }
   it { should be_grouped_into 'vault' }
+  its('mode') { should cmp '0640' }
 end
 
 describe service('vault') do
   it { should be_installed }
   it { should be_enabled }
   it { should be_running }
+end
+
+describe file('/usr/local/bin/vault') do
+  it { should exist }
+  it { should be_symlink }
+  it { should be_linked_to '/opt/vault/0.7.2/vault' }
 end

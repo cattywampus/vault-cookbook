@@ -23,11 +23,13 @@ property :extract_to, String, default: '/opt/vault'
 default_action :install
 
 action :install do
-  directory new_resource.extract_to do
-    mode '0755'
-    owner new_resource.user
-    group new_resource.group
-    recursive true
+  [new_resource.extract_to, ::File.join(new_resource.extract_to, new_resource.version)].each do |dir|
+    directory dir do
+      mode '0755'
+      owner new_resource.user
+      group new_resource.group
+      recursive true
+    end
   end
 
   poise_archive new_resource.archive_url do
@@ -35,6 +37,10 @@ action :install do
     strip_components 0
     user new_resource.user
     group new_resource.group
+  end
+
+  file ::File.join(new_resource.extract_to, new_resource.version, 'vault') do
+    mode '0755'
   end
 
   link '/usr/local/bin/vault' do

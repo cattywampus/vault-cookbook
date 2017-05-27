@@ -5,7 +5,7 @@
 # Copyright 2015-2016, Bloomberg Finance L.P.
 #
 
-resource_name :vault_installation_package
+resource_name :vault_install_package
 
 property :version, String, name_property: true
 property :package_name, String, default: 'vault'
