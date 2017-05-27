@@ -53,6 +53,11 @@ action :install do
 end
 
 action :remove do
+  poise_service_user new_resource.user do
+    group new_resource.group
+    action :remove
+  end
+
   directory ::File.join(new_resource.extract_to, new_resource.version) do
     recursive true
     action :delete

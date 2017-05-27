@@ -61,6 +61,11 @@ action :install do
 end
 
 action :remove do
+  poise_service_user new_resource.user do
+    group new_resource.group
+    action :remove
+  end
+
   directory new_resource.git_path do
     recursive true
     action :delete
