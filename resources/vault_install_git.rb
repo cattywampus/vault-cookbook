@@ -8,6 +8,8 @@
 resource_name :vault_install_git
 
 property :version, String, name_property: true
+property :user, String, default: 'vault'
+property :group, String, default: 'vault'
 property :git_url, String, default: 'https://github.com/hashicorp/vault'
 property :git_path, String, default: "#{node['go']['gopath']}/src/github.com/hashicorp/vault"
 property :git_ref, String, default: lazy { "v#{version}" }
@@ -23,6 +25,10 @@ action :install do
   golang_package 'github.com/tools/godep'
   golang_package 'golang.org/x/tools/cmd/cover'
   golang_package 'github.com/golang/go/src/cmd/vet'
+
+  poise_service_user new_resource.user do
+    group new_resource.group
+  end
 
   # Ensure paths exist for checkout, or git will fail
   directory new_resource.git_path do
@@ -55,6 +61,11 @@ action :install do
 end
 
 action :remove do
+  poise_service_user new_resource.user do
+    group new_resource.group
+    action :remove
+  end
+
   directory new_resource.git_path do
     recursive true
     action :delete
